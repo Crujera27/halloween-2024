@@ -84,6 +84,21 @@ El sistema antitramposos está diseñado para detectar posibles trampas durante 
 
 Este sistema ayuda a mantener la integridad de las respuestas y asegura que los estudiantes no hagan trampas durante la evaluación.
 
+## Preview
+
+![](./msrc/1.png)
+![](./msrc/2.png)
+![](./msrc/3.png)
+![](./msrc/4.png)
+![](./msrc/5.png)
+![](./msrc/6.png)
+![](./msrc/7.png)
+![](./msrc/8.png)
+![](./msrc/9.png)
+![](./msrc/10.png)
+![](./msrc/11.png)
+![](./msrc/12.png)
+![](./msrc/13.png)
 ## Notas
 
 Este proyecto fue desarrollado rápidamente y puede contener errores o áreas que necesitan mejoras. No pude utilizarlo debido a la DANA que afectó mi municipio de manera muy severa justo antes de Halloween.
