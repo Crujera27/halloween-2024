@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vista del Estudiante</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="student-container">
+    <div class="problem-card">
+      <h1 class="title"><%= problem.title %></h1>
+      <div class="problem-content">
+        <p id="problem"><%= problem.description %></p>
+      </div>
+    </div>
+    
+    <div id="form" class="answer-form">
+      <div class="input-group">
+        <input type="text" id="answer" placeholder="Tu respuesta">
+        <button onclick="submitAnswer()">
+          <i class="fas fa-paper-plane icon"></i>
+          <span>Enviar</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="thankYouMessage" class="thank-you-message" style="display:none;">
+      <h2><i class="fas fa-check-circle icon"></i>¡Gracias por tu respuesta!</h2>
+      <div id="statusMessage">
+        <p>Por favor, espera mientras el profesor revisa tu solución.</p>
+        <div class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const socket = io();
+    const sessionId = '<%= sessionId %>';
+    const incorrectPhrases = [
+      "Mejor suerte la próxima vez",
+      "¡Sigue intentándolo!",
+      "No te desanimes, es parte del aprendizaje",
+      "El éxito viene después de muchos intentos",
+      "Cada error nos acerca más a la respuesta correcta",
+      "La práctica hace al maestro"
+    ];
+
+    function submitAnswer() {
+      const answer = document.getElementById('answer').value;
+      socket.emit('submit-answer', { sessionId, answer, cheated: false });
+      document.getElementById('form').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+      window.onbeforeunload = null; // Prevent further submissions
+    }
+
+    window.onbeforeunload = function() {
+      socket.emit('submit-answer', { sessionId, answer: null, cheated: true });
+    };
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        socket.emit('submit-answer', { sessionId, answer: null, cheated: true });
+      }
+    });
+
+    socket.on('status-update', function(data) {
+      if (data.sessionId === sessionId) {
+        const statusMessage = document.getElementById('statusMessage');
+        const icon = data.status === 'CORRECTO' ? 
+          '<i class="fas fa-check-circle icon"></i>' : 
+          '<i class="fas fa-times-circle icon"></i>';
+        
+        let message;
+        if (data.status === 'CORRECTO') {
+          message = '¡Tu respuesta es correcta!';
+        } else {
+          const randomPhrase = incorrectPhrases[Math.floor(Math.random() * incorrectPhrases.length)];
+          message = `Respuesta incorrecta. ${randomPhrase}`;
+        }
+        
+        statusMessage.innerHTML = `
+          <h2>${icon}${message}</h2>
+        `;
+      }
+    });
+
+    // Render MathJax
+    MathJax.typeset();
+  </script>
+</body>
+</html>

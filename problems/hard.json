@@ -1,0 +1,44 @@
+[
+  {
+      "id": 1,
+      "title": "Principio de Incertidumbre",
+      "description": "Según el principio de incertidumbre de Heisenberg, si la incertidumbre en la posición de una partícula es de 1x10^-10 m, ¿cuál es la mínima incertidumbre en su momento (en kg·m/s) si la constante de Planck es aproximadamente 6.63x10^-34 J·s?",
+      "answer": "6.63x10^-24 kg·m/s",
+      "difficulty": "hard"
+  },
+  {
+      "id": 2,
+      "title": "Dualidad Onda-Partícula",
+      "description": "Para un electrón con una velocidad de 2x10^6 m/s, ¿cuál es su longitud de onda de De Broglie? Usa la constante de Planck (h = 6.63x10^-34 J·s) y la masa del electrón (9.11x10^-31 kg).",
+      "answer": "3.64x10^-10 m",
+      "difficulty": "hard"
+  },
+  {
+      "id": 3,
+      "title": "Energía del Fotón",
+      "description": "Un fotón tiene una frecuencia de 5x10^14 Hz. ¿Cuál es su energía? Usa la constante de Planck h = 6.63x10^-34 J·s.",
+      "answer": "3.32x10^-19 J",
+      "difficulty": "hard"
+  },
+  {
+      "id": 4,
+      "title": "Nivel Energético del Átomo de Hidrógeno",
+      "description": "¿Cuál es la energía del fotón emitido cuando un electrón en un átomo de hidrógeno transita del nivel n=3 al nivel n=2? Usa la constante de Rydberg (R_H = 2.18x10^-18 J).",
+      "answer": "1.89x10^-19 J",
+      "difficulty": "hard"
+  },
+  {
+      "id": 5,
+      "title": "Probabilidad en una Caja Cuántica",
+      "description": "En una partícula en una caja unidimensional de longitud L, ¿cuál es la probabilidad de encontrar la partícula en la primera mitad de la caja en su estado fundamental?",
+      "answer": "0.5",
+      "difficulty": "hard"
+  },
+  {
+      "id": 6,
+      "title": "Radiación Solar",
+      "description": "En una investigación sobre la radiación solar, se sabe que la distancia media entre el Sol y la Tierra es de 150 millones de kilómetros. Supongamos que la radiación solar media en la Tierra es de 1370 W/m². En un experimento hipotético, un satélite se encuentra a una distancia de 35,786 kilómetros sobre la superficie de la Tierra, y la radiación solar en el espacio vacío sin atmósfera es de 1361 W/m². Si consideramos que la atmósfera terrestre refleja el 25% de la radiación solar y el satélite recibe el 10% más de radiación que la media en la Tierra debido a su posición en el espacio, ¿cuál es la distancia al Sol en una dimensión alternativa donde la radiación solar en el espacio vacío es igual a la radiación que recibe el satélite en esa dimensión alternativa?",
+      "answer": "143,019,388 km",
+      "difficulty": "hard"
+  }
+]

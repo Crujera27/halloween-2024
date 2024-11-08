@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles de la Submisión</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-info-circle icon"></i>Detalles de la Submisión</h1>
+    <div class="details-card">
+      <p><strong>ID del Estudiante:</strong> <%= sessionId %></p>
+      <p><strong>Hora de la Solicitud:</strong> <%= new Date(submission.timestamp).toLocaleString() %></p>
+      <p><strong>ID del Problema:</strong> <%= submission.problem.id %></p>
+      <p><strong>Dificultad:</strong> <%= submission.problem.difficulty %></p>
+      <p><strong>Problema:</strong> <%= submission.problem.title %> - <%= submission.problem.description %></p>
+      <p><strong>Respuesta:</strong> <%= submission.answer %></p>
+      <p><strong>Respuesta correcta:</strong> <%= submission.problem.answer %></p>
+      <p><strong>Resultado:</strong> <%= submission.cheated ? 'PODRÍA HABER HECHO TRAMPA' : (submission.answer === submission.problem.answer ? 'RESPUESTA CORRECTA' : 'RESPUESTA INCORRECTA') %></p>
+      <p><strong>IP de Origen:</strong> <%= submission.ip %></p>
+      <p><strong>Intentos de Envío en la sessión actual (IP):</strong> <%= submission.attempts %></p>
+    </div>
+    
+    <div class="evaluation-buttons">
+      <button onclick="updateStatus('CORRECTO')" class="correct-button">
+        <i class="fas fa-check icon"></i>Marcar como Correcto
+      </button>
+      <button onclick="updateStatus('INCORRECTO')" class="incorrect-button">
+        <i class="fas fa-times icon"></i>Marcar como Incorrecto
+      </button>
+    </div>
+
+    <a href="/profe" class="back-button"><i class="fas fa-arrow-left icon"></i>Volver a la Vista del Profesor</a>
+  </div>
+
+  <div id="customAlert" class="custom-alert">
+    <div class="alert-content">
+      <i id="alertIcon" class="fas"></i>
+      <p id="alertMessage"></p>
+      <button onclick="closeAlert()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    const socket = io();
+    const sessionId = '<%= sessionId %>';
+
+    function showCustomAlert(message, type) {
+      const alert = document.getElementById('customAlert');
+      const icon = document.getElementById('alertIcon');
+      const alertMessage = document.getElementById('alertMessage');
+      
+      icon.className = type === 'success' ? 
+        'fas fa-check-circle' : 
+        'fas fa-times-circle';
+      
+      alertMessage.textContent = `Respuesta marcada como ${type === 'success' ? 'correcta' : 'incorrecta'}`;
+      alert.classList.add('show');
+    }
+
+    function closeAlert() {
+      document.getElementById('customAlert').classList.remove('show');
+    }
+
+    function updateStatus(status) {
+      socket.emit('update-status', { sessionId, status });
+      showCustomAlert('', status === 'CORRECTO' ? 'success' : 'error');
+    }
+  </script>
+</body>
+</html>

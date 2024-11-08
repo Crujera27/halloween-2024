@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vista del profesor</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-chalkboard-teacher icon"></i>Vista del profesor</h1>
+    <button class="generate-button" onclick="openModal()"><i class="fas fa-qrcode icon"></i>Generar Código QR</button>
+    <div id="results"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID del Estudiante</th>
+          <th>Hora de la Solicitud</th>
+          <th>Resultado</th>
+          <th>Detalles</th>
+        </tr>
+      </thead>
+      <tbody id="submissions">
+        <% for (let sessionId in submissions) { %>
+          <tr id="row-<%= sessionId %>">
+            <td><%= sessionId %></td>
+            <td><%= new Date(submissions[sessionId].timestamp).toLocaleString() %></td>
+            <td><%= submissions[sessionId].cheated ? 'POSIBLES TRAMPAS' : 'CONTESTADO' %></td>
+            <td><a href="/detail/<%= sessionId %>"><i class="fas fa-info-circle icon"></i>Ver Detalles</a></td>
+          </tr>
+        <% } %>
+        <% for (let sessionId in sessions) { %>
+          <tr id="row-<%= sessionId %>">
+            <td><%= sessionId %></td>
+            <td>Esperando respuesta</td>
+            <td>Esperando respuesta</td>
+            <td><a href="/detail/<%= sessionId %>"><i class="fas fa-info-circle icon"></i>Ver Detalles</a></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <!-- Modal for QR Code Generation -->
+    <div id="qrModal">
+      <button class="close-button" onclick="closeModal()">&times;</button>
+      <h2><i class="fas fa-qrcode icon"></i>Generar Código QR</h2>
+      <label for="difficulty">Dificultad:</label>
+      <select id="difficulty">
+        <option value="easy">Fácil</option>
+        <option value="medium">Media</option>
+        <option value="hard">Difícil</option>
+        <option value="custom">Personalizada</option>
+      </select>
+      <div id="customProblem" style="display:none;">
+        <input type="text" id="problemTitle" placeholder="Título del Problema">
+        <textarea id="problemDescription" placeholder="Descripción del Problema"></textarea>
+      </div>
+      <button onclick="generateQR()"><i class="fas fa-check icon"></i>Generar</button>
+      <div id="qrCode"></div>
+      <div id="qrUrl"></div>
+    </div>
+  </div>
+
+  <script>
+    const socket = io();
+    socket.on('new-answer', (data) => {
+      const submissions = document.getElementById('submissions');
+      let row = document.getElementById(`row-${data.sessionId}`);
+      if (!row) {
+        row = document.createElement('tr');
+        row.id = `row-${data.sessionId}`;
+        submissions.appendChild(row);
+      }
+      row.innerHTML = `<td>${data.sessionId}</td><td>${new Date(data.timestamp).toLocaleString()}</td><td>${data.cheated ? 'POSIBLES TRAMPAS' : 'CONTESTADO '}</td><td><a href="/detail/${data.sessionId}"><i class="fas fa-info-circle icon"></i>Ver Detalles</a></td>`;
+    });
+
+    socket.on('new-session', (data) => {
+      const submissions = document.getElementById('submissions');
+      let row = document.getElementById(`row-${data.sessionId}`);
+      if (!row) {
+        row = document.createElement('tr');
+        row.id = `row-${data.sessionId}`;
+        submissions.appendChild(row);
+      }
+      row.innerHTML = `<td>${data.sessionId}</td><td>Esperando respuesta</td><td>Esperando respuesta</td><td><a href="/detail/${data.sessionId}"><i class="fas fa-info-circle icon"></i>Ver Detalles</a></td>`;
+    });
+
+    function openModal() {
+      document.getElementById('qrModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('qrModal').style.display = 'none';
+    }
+
+    function generateQR() {
+      const difficulty = document.getElementById('difficulty').value;
+      const problemTitle = document.getElementById('problemTitle').value;
+      const problemDescription = document.getElementById('problemDescription').value;
+
+      $.post('/generate-qr', { difficulty, problemTitle, problemDescription }, function(data) {
+        $('#qrCode').html(`<img src="${data.src}">`);
+        $('#qrUrl').html(`<p>${data.url}</p>`);
+      });
+    }
+
+    document.getElementById('difficulty').addEventListener('change', function() {
+      if (this.value === 'custom') {
+        document.getElementById('customProblem').style.display = 'block';
+      } else {
+        document.getElementById('customProblem').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

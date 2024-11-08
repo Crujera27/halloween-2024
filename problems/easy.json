@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "title": "Suma Básica",
+    "description": "¿Cuánto es 3 + 5?",
+    "answer": "8",
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "title": "Resta Básica",
+    "description": "¿Cuánto es 10 - 4?",
+    "answer": "6",
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "title": "Multiplicación Básica",
+    "description": "¿Cuánto es 3 x 3?",
+    "answer": "9",
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "title": "División Básica",
+    "description": "¿Cuánto es 20 ÷ 5?",
+    "answer": "4",
+    "difficulty": "easy"
+  },
+  {
+    "id": 5,
+    "title": "Comparación de Números",
+    "description": "¿Cuál es mayor, 15 o 12?",
+    "answer": "15",
+    "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "title": "Suma de Dos Dígitos",
+    "description": "¿Cuánto es 25 + 10?",
+    "answer": "35",
+    "difficulty": "easy"
+  },
+  {
+    "id": 7,
+    "title": "Resta de Dos Dígitos",
+    "description": "¿Cuánto es 30 - 15?",
+    "answer": "15",
+    "difficulty": "easy"
+  },
+  {
+    "id": 8,
+    "title": "Mitad de un Número",
+    "description": "¿Cuál es la mitad de 8?",
+    "answer": "4",
+    "difficulty": "easy"
+  },
+  {
+    "id": 9,
+    "title": "Multiplicación por Cero",
+    "description": "¿Cuánto es 7 x 0?",
+    "answer": "0",
+    "difficulty": "easy"
+  },
+  {
+    "id": 10,
+    "title": "Doblar un Número",
+    "description": "¿Cuál es el doble de 6?",
+    "answer": "12",
+    "difficulty": "easy"
+  },
+  {
+    "id": 11,
+    "title": "Contar Objetos",
+    "description": "Si tienes 3 manzanas y te dan 2 más, ¿cuántas manzanas tienes en total?",
+    "answer": "5",
+    "difficulty": "easy"
+  },
+  {
+    "id": 12,
+    "title": "Sumar Decenas",
+    "description": "¿Cuánto es 10 + 20?",
+    "answer": "30",
+    "difficulty": "easy"
+  },
+  {
+    "id": 13,
+    "title": "Resta con Decenas",
+    "description": "¿Cuánto es 50 - 20?",
+    "answer": "30",
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "title": "División entre Uno",
+    "description": "¿Cuánto es 9 ÷ 1?",
+    "answer": "9",
+    "difficulty": "easy"
+  },
+  {
+    "id": 15,
+    "title": "Suma de Unidades",
+    "description": "¿Cuánto es 6 + 3?",
+    "answer": "9",
+    "difficulty": "easy"
+  }
+]

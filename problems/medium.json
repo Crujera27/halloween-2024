@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "title": "Ecuación Lineal",
+    "description": "Resuelve para x: 2x + 3 = 11",
+    "answer": "x = 4",
+    "difficulty": "medium"
+  },
+  {
+    "id": 2,
+    "title": "Factorización",
+    "description": "Factoriza la expresión: x^2 - 9",
+    "answer": "(x + 3)(x - 3)",
+    "difficulty": "medium"
+  },
+  {
+    "id": 3,
+    "title": "Ángulo Complementario",
+    "description": "Si un ángulo mide 30°, ¿cuánto mide su ángulo complementario?",
+    "answer": "60°",
+    "difficulty": "medium"
+  },
+  {
+    "id": 4,
+    "title": "Suma de Fracciones",
+    "description": "¿Cuánto es 1/4 + 1/2?",
+    "answer": "3/4",
+    "difficulty": "medium"
+  },
+  {
+    "id": 5,
+    "title": "Multiplicación de Decimales",
+    "description": "¿Cuánto es 0.5 * 0.4?",
+    "answer": "0.2",
+    "difficulty": "medium"
+  },
+  {
+    "id": 6,
+    "title": "Área de un Triángulo",
+    "description": "Calcula el área de un triángulo con base 10 cm y altura 5 cm.",
+    "answer": "25 cm²",
+    "difficulty": "medium"
+  },
+  {
+    "id": 7,
+    "title": "Raíz Cuadrada",
+    "description": "¿Cuál es la raíz cuadrada de 64?",
+    "answer": "8",
+    "difficulty": "medium"
+  },
+  {
+    "id": 8,
+    "title": "Sistema de Ecuaciones",
+    "description": "Resuelve el sistema de ecuaciones: x + y = 5 y x - y = 1",
+    "answer": "x = 3, y = 2",
+    "difficulty": "medium"
+  },
+  {
+    "id": 9,
+    "title": "Ángulo Suplementario",
+    "description": "Si un ángulo mide 120°, ¿cuánto mide su ángulo suplementario?",
+    "answer": "60°",
+    "difficulty": "medium"
+  },
+  {
+    "id": 10,
+    "title": "Logaritmo",
+    "description": "¿Cuánto es log₄(16)?",
+    "answer": "2",
+    "difficulty": "medium"
+  },
+  {
+    "id": 11,
+    "title": "Simplificación de Expresiones",
+    "description": "Simplifica: (3x + 6) / 3",
+    "answer": "x + 2",
+    "difficulty": "medium"
+  },
+  {
+    "id": 12,
+    "title": "Producto de Binomios",
+    "description": "¿Cuánto es (x + 2)(x - 2)?",
+    "answer": "x^2 - 4",
+    "difficulty": "medium"
+  },
+  {
+    "id": 13,
+    "title": "Desigualdad",
+    "description": "Resuelve la desigualdad: 3x - 5 > 1",
+    "answer": "x > 2",
+    "difficulty": "medium"
+  },
+  {
+    "id": 14,
+    "title": "Potencia",
+    "description": "¿Cuánto es 2^5?",
+    "answer": "32",
+    "difficulty": "medium"
+  },
+  {
+    "id": 15,
+    "title": "Pendiente de una Recta",
+    "description": "Encuentra la pendiente de la recta que pasa por los puntos (1,2) y (3,8).",
+    "answer": "3",
+    "difficulty": "medium"
+  }
+]

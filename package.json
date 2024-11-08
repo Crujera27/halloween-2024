@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "halloween-2024": "file:",
+    "nodemon": "^3.1.7",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.1"
+  },
+  "name": "halloween-2024",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Crujera27",
+  "license": "UNLICENSED",
+  "description": ""
+}

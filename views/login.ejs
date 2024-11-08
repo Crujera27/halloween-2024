@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1><i class="fas fa-shield-alt icon"></i>Login Checkpoint</h1>
+    <form action="/login" method="post">
+      <% if (!showCodeInput) { %>
+        <input type="password" name="password" placeholder="Contraseña" autocomplete="off">
+        <button type="submit"><i class="fas fa-key icon"></i>Validar</button>
+      <% } else { %>
+        <input type="text" name="verificationCode" placeholder="Código de verificación" autocomplete="off">
+        <input type="hidden" name="password" value="<%= password %>">
+        <button type="submit"><i class="fas fa-lock icon"></i>Verificar</button>
+      <% } %>
+    </form>
+    <% if (error) { %>
+      <p class="error-message"><%= error %></p>
+    <% } %>
+  </div>
+</body>
+</html>

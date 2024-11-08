@@ -1,0 +1,707 @@
+/* General Styles */
+body {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    padding: var(--safe-area-inset-top) 0 var(--safe-area-inset-bottom);
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 90%;
+    max-width: min(800px, 100% - 2rem);
+    margin-inline: auto;
+    padding: clamp(1rem, 5vw, 2rem);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #bb86fc;
+    text-align: center;
+  }
+  
+  a {
+    color: #bb86fc;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  button {
+    background-color: #bb86fc;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px; 
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+    touch-action: manipulation;
+  }
+  
+  button:hover {
+    background-color: #9b6bdb;
+  }
+  
+  /* Form Styles */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  input[type="password"], input[type="text"], textarea, select {
+    background-color: #2e2e3e;
+    border: 1px solid #bb86fc;
+    color: #ffffff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  input[type="password"]::placeholder, input[type="text"]::placeholder, textarea::placeholder {
+    color: #bb86fc;
+  }
+  
+  /* Table Styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #bb86fc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #2e2e3e;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #2e2e3e;
+  }
+  
+  /* Modal Styles */
+  #qrModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1e1e2f;
+    padding: 20px;
+    border: 1px solid #bb86fc;
+    border-radius: 10px;
+    display: none;
+    animation: fadeIn 0.5s ease;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  #qrModal h2 {
+    margin-top: 0;
+  }
+  
+  #qrModal button {
+    margin-top: 20px;
+  }
+  
+  /* Close Button Styles */
+  .close-button {
+    background: none;
+    border: none;
+    color: #bb86fc;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: #ffffff;
+  }
+  
+  /* Thank You Message Styles */
+  #thankYouMessage {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Icons */
+  .icon {
+    margin-right: 5px;
+  }
+  
+  /* Details Card Styles */
+  .details-card {
+    background-color: #2e2e3e;
+    border: 1px solid #bb86fc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    padding: clamp(1rem, 3vw, 2rem);
+    margin: clamp(1rem, 3vw, 2rem) 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .details-card p {
+    margin: 10px 0;
+  }
+  
+  /* Back Button Styles */
+  .back-button {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #bb86fc;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    min-height: 44px; /* iOS minimum tap target size */
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+    touch-action: manipulation;
+  }
+  
+  .back-button:hover {
+    background-color: #9b6bdb;
+  }
+  
+  /* Generate Button Styles */
+  .generate-button {
+    margin-bottom: 20px;
+  }
+  
+  /* Login Styles */
+  .login-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 320px;
+    text-align: center;
+    background: #2e2e3e;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.3);
+  }
+  
+  .login-container input[type="text"] {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    text-align: center;
+    width: 100%;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #1e1e2f;
+  }
+  
+  .error-message {
+    color: #ff4444;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 600px) {
+    button {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    input[type="password"], input[type="text"], textarea, select {
+      width: 100%;
+      max-width: none;
+    }
+  
+    .details-card {
+      padding: 15px;
+    }
+  
+    .back-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  /* Student View Specific Styles */
+  .student-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 20px;
+    animation: slideIn 0.5s ease-out;
+    width: 90%;
+    max-width: min(800px, 100% - 2rem);
+    margin-inline: auto;
+    padding: clamp(1rem, 5vw, 2rem);
+  }
+  
+  .problem-card {
+    background: #2e2e3e;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    border: 1px solid #bb86fc;
+    padding: clamp(1rem, 3vw, 2rem);
+    margin: clamp(1rem, 3vw, 2rem) 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .problem-card .title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #bb86fc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    line-height: 1.2;
+  }
+  
+  .problem-content {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ffffff;
+  }
+  
+  .answer-form {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    gap: clamp(0.5rem, 2vw, 1rem);
+  }
+  
+  .input-group input {
+    flex: 1;
+    font-size: 1.1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #2e2e3e;
+    border: 2px solid #bb86fc;
+    color: white;
+    transition: all 0.3s ease;
+    height: clamp(2.5rem, 8vw, 3.5rem);
+    font-size: clamp(0.875rem, 2.5vw, 1.1rem);
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.3);
+  }
+  
+  .input-group button {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    background: #bb86fc;
+    border: none;
+    border-radius: 8px;
+    color: #1e1e2f;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: clamp(2.5rem, 8vw, 3.5rem);
+    font-size: clamp(0.875rem, 2.5vw, 1.1rem);
+  }
+  
+  .input-group button:hover {
+    background: #9b6bdb;
+    transform: translateY(-2px);
+  }
+  
+  .thank-you-message {
+    text-align: center;
+    padding: 2rem;
+    background: #2e2e3e;
+    border-radius: 15px;
+    border: 1px solid #bb86fc;
+    animation: bounceIn 0.6s ease-out;
+    margin: clamp(1rem, 5vw, 2rem) auto;
+    width: min(100%, 500px);
+  }
+  
+  .thank-you-message h2 {
+    color: #bb86fc;
+    margin-bottom: 1rem;
+  }
+  
+  .thank-you-message p {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .loading-spinner {
+    color: #bb86fc;
+    font-size: 2rem;
+    margin-top: 1rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive adjustments for student view */
+  @media (max-width: 600px) {
+    .student-container {
+      margin: 1rem auto;
+      padding: 0 15px;
+    }
+  
+    .problem-card {
+      padding: 1.5rem;
+    }
+  
+    .problem-card .title {
+      font-size: 1.5rem;
+    }
+  
+    .input-group {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .input-group button {
+      width: 100%;
+    }
+  }
+  
+  /* Evaluation Buttons Styles */
+  .evaluation-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    justify-content: center;
+  }
+  
+  .correct-button {
+    background-color: #4CAF50;
+  }
+  
+  .correct-button:hover {
+    background-color: #45a049;
+  }
+  
+  .incorrect-button {
+    background-color: #f44336;
+  }
+  
+  .incorrect-button:hover {
+    background-color: #da190b;
+  }
+  
+  /* Custom Alert Styles */
+  .custom-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .custom-alert.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .alert-content {
+    background: #2e2e3e;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    border: 2px solid #bb86fc;
+    animation: bounceIn 0.5s ease;
+    width: min(90%, 400px);
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .alert-content i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .alert-content i.fa-check-circle {
+    color: #4CAF50;
+  }
+  
+  .alert-content i.fa-times-circle {
+    color: #f44336;
+  }
+  
+  .alert-content p {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #ffffff;
+  }
+  
+  .alert-content button {
+    margin-top: 1rem;
+    padding: 0.8rem 2rem;
+    min-width: 120px;
+    background: #bb86fc;
+    color: #1e1e2f;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .alert-content button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(187, 134, 252, 0.4);
+  }
+
+  /* Enhanced Mobile and Modern Design */
+  :root {
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  
+  /* Container responsiveness */
+  .container, .student-container {
+    width: 90%;
+    max-width: min(800px, 100% - 2rem);
+    margin-inline: auto;
+    padding: clamp(1rem, 5vw, 2rem);
+  }
+  
+  /* Typography scaling */
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    line-height: 1.2;
+  }
+  
+  /* Card and form improvements */
+  .problem-card, .details-card {
+    padding: clamp(1rem, 3vw, 2rem);
+    margin: clamp(1rem, 3vw, 2rem) 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .input-group {
+    gap: clamp(0.5rem, 2vw, 1rem);
+  }
+  
+  .input-group input, .input-group button {
+    height: clamp(2.5rem, 8vw, 3.5rem);
+    font-size: clamp(0.875rem, 2.5vw, 1.1rem);
+  }
+  
+  /* Table improvements */
+  @media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+  
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+  
+    tr {
+      margin-bottom: 1rem;
+      border: 1px solid #bb86fc;
+      border-radius: 8px;
+      padding: 0.5rem;
+    }
+  
+    td {
+      border: none;
+      position: relative;
+      padding-left: 50%;
+      text-align: right;
+    }
+  
+    td:before {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      content: attr(data-label);
+      font-weight: bold;
+    }
+  }
+  
+  /* Modal improvements */
+  #qrModal {
+    max-height: 90vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Button improvements */
+  button, .back-button {
+    min-height: 44px; /* iOS minimum tap target size */
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+    touch-action: manipulation;
+  }
+  
+  /* Loading spinner improvements */
+  .loading-spinner {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  
+  /* Enhanced touch interactions */
+  @media (hover: none) {
+    button:active, .back-button:active {
+      transform: scale(0.98);
+    }
+  }
+  
+  /* Better scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Status message improvements */
+  .thank-you-message {
+    margin: clamp(1rem, 5vw, 2rem) auto;
+    width: min(100%, 500px);
+  }
+  
+  /* Custom alert improvements */
+  .custom-alert .alert-content {
+    width: min(90%, 400px);
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  /* Enhanced mobile navigation */
+  @media (max-width: 600px) {
+    .evaluation-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .evaluation-buttons button {
+      width: 100%;
+    }
+  
+    /* Improved form elements */
+    input, select, textarea {
+      font-size: 16px; /* Prevent iOS zoom on focus */
+    }
+  
+    /* Better spacing for mobile */
+    .details-card p {
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+  
+    /* Enhance mobile tables */
+    td, th {
+      white-space: normal;
+      word-break: break-word;
+    }
+  }
+  
+  /* Modern features */
+  @supports (backdrop-filter: blur(10px)) {
+    .problem-card, .details-card, .custom-alert .alert-content {
+      background-color: rgba(46, 46, 62, 0.8);
+      backdrop-filter: blur(10px);
+    }
+  }
+  
+  /* Enhanced focus states */
+  :focus {
+    outline: 2px solid #bb86fc;
+    outline-offset: 2px;
+  }
+  
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Better dark mode support */
+  @media (prefers-color-scheme: dark) {
+    ::selection {
+      background: #bb86fc40;
+    }
+  }
+  
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
